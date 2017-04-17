@@ -44,7 +44,6 @@ class Object
 end
 
 class String
-
   # from facets
   def tabto(num=nil, opts={})
     raise ArgumentError, "String#margin has been renamed to #trim." unless num
@@ -65,7 +64,7 @@ class String
         min << line.index(/\S/)
       end
       min = min.min
-      str.indent(num - min)
+      str.indent(num - min) unless (num - min) < 1
     end
   end
 
@@ -77,5 +76,4 @@ class String
       gsub(/^#{Regexp.escape(c)}{0,#{-n}}/, "")
     end
   end
-
 end
