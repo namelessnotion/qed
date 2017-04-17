@@ -64,7 +64,8 @@ class String
         min << line.index(/\S/)
       end
       min = min.min
-      str.indent(num - min) unless (num - min) < 1
+      return str if (num - min) < 1
+      str.indent(num - min)
     end
   end
 
