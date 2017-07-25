@@ -201,7 +201,7 @@ module QED
       if md = /\A["]{3,}(.*?)["]{3,}\Z/.match(str)
         str = md[1]
       end
-      str.rstrip
+      ERB.new(str.rstrip).result
     end
 
     # TODO: object_hexid
